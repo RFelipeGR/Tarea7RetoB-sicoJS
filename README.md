@@ -1,4 +1,3 @@
-✅ README.md (listo para copiar y pegar)
 # 🟨 Reto JS — Hold Shift to Check Multiple Checkboxes  
 **Tarea 7: Reto básico JS**
 
