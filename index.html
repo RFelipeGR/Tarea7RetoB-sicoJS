@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hold Shift to Check Multiple Checkboxes</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 20px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffc600; /* fondo amarillo como en el reto */
+    }
+
+    .inbox {
+      background: white;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #f1f1f1;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    .item input[type="checkbox"] {
+      margin: 20px;
+    }
+
+    .item p {
+      margin: 0;
+      padding: 20px 0;
+      flex: 1;
+      border-left: 1px solid #f1f1f1;
+    }
+
+    /* Cuando el checkbox está marcado, tachamos el texto */
+    .item input:checked + p {
+      text-decoration: line-through;
+      color: #999;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an inbox layout.</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check one item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Hold down your Shift key</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check a lower item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Everything inbetween should also be set to checked</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Try do it without any libraries</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Just regular JavaScript</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Good Luck!</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Don’t forget to tweet your result!</p>
+    </div>
+  </div>
+
+  <script>
+    // Seleccionamos todos los checkboxes dentro de .inbox
+    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+    // Guardará el último checkbox clickeado
+    let lastChecked;
+
+    function handleCheck(e) {
+      // Solo nos interesa cuando:
+      // 1) Mantienen SHIFT presionado
+      // 2) Y el checkbox actual se marca (checked = true)
+      let inBetween = false;
+
+      if (e.shiftKey && this.checked) {
+        // Recorremos todos los checkboxes
+        checkboxes.forEach(checkbox => {
+          // Cuando llegamos al checkbox actual o al último clickeado,
+          // cambiamos el estado de la variable inBetween
+          if (checkbox === this || checkbox === lastChecked) {
+            inBetween = !inBetween;
+          }
+
+          // Mientras inBetween sea true, los marcamos
+          if (inBetween) {
+            checkbox.checked = true;
+          }
+        });
+      }
+
+      // Actualizamos el último checkbox clickeado
+      lastChecked = this;
+    }
+
+    // Escuchamos el click en cada checkbox
+    checkboxes.forEach(checkbox =>
+      checkbox.addEventListener('click', handleCheck)
+    );
+  </script>
+</body>
+</html>
