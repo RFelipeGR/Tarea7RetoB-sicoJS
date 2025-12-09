@@ -88,7 +88,7 @@ index.html
 
 🌐 7. Link del despliegue (Deploy)
 ```bash
-🔗 https://tarea7-reto-b-sico-js.vercel.app
+  https://tarea7-reto-b-sico-js.vercel.app
 ```
 
 ---
