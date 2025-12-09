@@ -1,90 +1,118 @@
 # 🟨 Reto JS — Hold Shift to Check Multiple Checkboxes  
-**Tarea 7: Reto básico JS**
-
-Este proyecto es una reproducción del ejercicio **“Hold Shift to Check Multiple Checkboxes”** del curso **JavaScript30**, creado por Wes Bos.  
-El objetivo del reto es implementar, con JavaScript puro (sin librerías), una funcionalidad que permita **seleccionar múltiples checkboxes manteniendo presionada la tecla Shift**, tal como ocurre en aplicaciones de correo o sistemas de archivos.
+**Tarea 7: Reto básico JS – JavaScript30 Challenge**
 
 ---
 
-## 📌 ¿En qué consiste el reto?
+## 🧾 Descripción General
 
-El usuario puede seleccionar un rango de checkboxes de la siguiente manera:
-
-1. Marca un checkbox.
-2. Mantiene presionada la tecla **Shift**.
-3. Hace clic en otro checkbox más abajo.
-4. Todos los checkboxes entre ambos se seleccionan automáticamente.
-
-Este comportamiento no existe por defecto en HTML, por lo que debe implementarse manualmente usando JavaScript.  
-El reto permite practicar manipulación del DOM, eventos y manejo de estado.
+Como parte del desarrollo de habilidades en JavaScript moderno y buenas prácticas de ingeniería web, este proyecto consiste en seleccionar uno de los retos del sitio **https://javascript30.com**, replicarlo y documentarlo correctamente.  
+El objetivo es evaluar la capacidad para comprender, adaptar e implementar lógica en **JavaScript sin frameworks**, además de demostrar dominio en control de versiones, documentación técnica y despliegue web.
 
 ---
 
-## 🧠 ¿Qué se busca aprender con este ejercicio?
-
-- Manejar eventos de clic (`click`) en elementos del DOM.
-- Detectar cuándo el usuario mantiene presionada la tecla **Shift**.
-- Recordar el último checkbox seleccionado.
-- Iterar sobre un conjunto de elementos para aplicar una acción (seleccionar un rango).
-- Manipular propiedades de los inputs con JavaScript (`checked = true`).
+# 📌 1. Nombre del reto seleccionado
+**“Hold Shift to Check Multiple Checkboxes” — Día 10 de JavaScript30**
 
 ---
 
-## 🛠 Tecnologías utilizadas
+# 📄 2. Descripción breve del objetivo del reto
 
-- **HTML5** → estructura básica de la interfaz  
-- **CSS3** → estilo visual inspirado en el diseño original del reto  
-- **JavaScript Vanilla (sin frameworks)** → lógica completa de selección múltiple  
+Este reto tiene como objetivo implementar una funcionalidad que permite seleccionar múltiples checkboxes utilizando la tecla **Shift**, de forma similar a cómo funcionan aplicaciones como Gmail.  
+El ejercicio desarrolla habilidades de manejo del DOM, eventos de teclado y control lógico utilizando únicamente **JavaScript puro**, sin librerías externas.
 
 ---
 
-## 📂 Estructura del proyecto
+# 🛠 3. Tecnologías utilizadas
+- **HTML5**
+- **CSS3**
+- **JavaScript (Vanilla JS)**
+- **Git & GitHub**
+- **Vercel (Deploy)**
+
+---
+
+## 📸 4. Capturas de pantalla o GIF del funcionamiento
+
+### Vista inicial del proyecto
+![Vista inicial](./assets/1.png)
+
+### Selección múltiple con Shift
+![Función Shift](./assets/2.png)
 
 
+
+
+---
+
+# 📂 5. Estructura del proyecto
 
 /
-├── index.html # Página principal con HTML, CSS y JS embebido
 
-└── README.md # Este archivo
+├── index.html # Página principal
+
+├── style.css # Estilos del proyecto
+
+├── script.js # Lógica JavaScript
+
+├── assets/ # Capturas o imágenes
+
+└── README.md # Documentación del proyecto
 
 
 ---
 
-## 🚀 Cómo ejecutar el proyecto
+# 🚀 6. Instrucciones para ejecutar el proyecto localmente
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repo.git
+1. Clona el repositorio:
 
+```bash
+git clone https://github.com/RFelipeGR/Tarea7RetoB-sicoJS.git
+```
 
-Abre el archivo:
+Ingresa a la carpeta del proyecto:
 
+```bash
+cd Tarea7RetoB-sicoJS
+```
+
+Abre el archivo principal en tu navegador:
+
+```bash
 index.html
+```
+
+✔ No requiere instalaciones adicionales
+✔ Funciona en cualquier navegador moderno
+
+---
+
+🌐 7. Link del despliegue (Deploy)
+```bash
+🔗 https://tarea7-reto-b-sico-js.vercel.app
+```
+
+---
 
 
-¡Listo! La página funciona directamente en el navegador, sin necesidad de instalación adicional.
-
-🧩 Explicación de la lógica principal
-
-La funcionalidad se basa en:
-
-1️⃣ Seleccionar todos los checkboxes del contenedor:
+🧩 8. Explicación de la lógica principal (JavaScript)
+Seleccionar todos los checkboxes:
 ```bash
 const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
 ```
-2️⃣ Guardar el último checkbox marcado:
+
+Guardar el último checkbox seleccionado:
+
 ```bash
 let lastChecked;
-```
-
-3️⃣ Detectar si el usuario hace clic con Shift presionado:
-```bash
+Detectar clic con Shift presionado:
+js
+Copiar código
 if (e.shiftKey && this.checked) {
-    // lógica para marcar el rango
+  // lógica para seleccionar el rango
 }
 ```
 
-4️⃣ Marcar todos los checkboxes entre el primero y el último seleccionado:
+Marcar los elementos entre el primero y el último seleccionado:
 ```bash
 let inBetween = false;
 
@@ -98,25 +126,26 @@ checkboxes.forEach(checkbox => {
 });
 ```
 
-5️⃣ Actualizar el último checkbox clickeado:
+Actualizar cuál fue el último checkbox clickeado:
 ```bash
 lastChecked = this;
 ```
 
-📸 Vista del proyecto
+---
 
-El diseño replica el mostrado en el reto original:
 
-- fondo amarillo
+👤 9. Autor
+```bash
+Roberto Felipe Guaña Romero
+```
 
-- caja blanca estilo “inbox”
+---
 
-- checkboxes alineados
 
-- texto que se tacha cuando se selecciona
+📚 10. Fuente oficial
+Curso JavaScript30 – Wes Bos
+```bash
+https://javascript30.com
+```
 
-📚 Fuente original del reto
-
-Este ejercicio pertenece al día 10 del curso JavaScript30:
-
-https://javascript30.com/
+---
